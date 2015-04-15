@@ -74,7 +74,9 @@ void loop()
     {
       // fill the array
       digitwiseNum[i] = Serial.read() - 48;  // encoding?
-      Serial.print("digitwiseNum[i] = ");
+      Serial.print("digitwiseNum[");
+      Serial.print(i);
+      Serial.print("]: ");
       Serial.println(digitwiseNum[i]);
     }
 
@@ -120,7 +122,9 @@ int parse(int numArray[], int numDigits)
     // at j = 1 (second run), array[1] * 10^(3 - 1 - 1) = 2*10^1
     // eventually it should hit 0, which means multiplying by 1
     // debug
-    Serial.print("numArray[j] = ");
+    Serial.print("numArray[");
+    Serial.print(j);
+    Serial.print("]: ");
     Serial.println(numArray[j]);
     outputNum += numArray[j] * pow(10, numDigits - 1 - j); // EXHIBITS ROUNDING ERROR, CAUTION!
   }
